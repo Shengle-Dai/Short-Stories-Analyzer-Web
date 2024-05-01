@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import GlobeLogo from "@/components/Globe-logo";
-import { PowerIcon } from "@heroicons/react/24/outline";
 import {
   DocumentTextIcon,
   HomeIcon,
@@ -10,40 +8,23 @@ import {
   Square2StackIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
-import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 
 const links = [
   { name: "Home", href: "/", icon: HomeIcon },
   {
-    name: "Coatings",
-    href: "/coatings",
-    icon: ForwardIcon,
-  },
-  {
-    name: "Shapes",
-    href: "/shapes",
+    name: "Statistics",
+    href: "/statistics",
     icon: Square2StackIcon,
   },
   {
-    name: "Magnetic Materials",
-    href: "/magnetic-materials",
-    icon: DocumentTextIcon,
-  },
-  {
-    name: "Experiments",
-    href: "/experiments",
-    icon: DocumentTextIcon,
-  },
-  {
-    name: "Platform ERD",
-    href: "/erd",
+    name: "Stories",
+    href: "/stories",
     icon: DocumentTextIcon,
   },
 ];
 
 function NavLinks() {
-  const { t } = useTranslation();
   const pathname = usePathname();
   return (
     <>
@@ -77,18 +58,10 @@ export default function Nav() {
           className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-200 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3"
           href="/"
         >
-          <div className="w-32 md:w-32">
-            <GlobeLogo />
-          </div>
+          <p className="text-[30px]">FWS</p>
         </Link>
         <NavLinks />
         <div className="hidden h-[48px] w-full grow rounded-md bg-gray-100 md:block"></div>
-        <form>
-          <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-100 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:w-auto md:justify-start md:p-2 md:px-3">
-            <PowerIcon className="w-6" />
-            <div className="hidden md:block">Sign Out</div>
-          </button>
-        </form>
       </div>
     </div>
   );
