@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Colors } from "@/utils/colors";
+import { Story } from "@/utils/definitions";
 
 ChartJS.register(
   RadialLinearScale,
@@ -21,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-const RadarChart = ({ stories }) => {
+const RadarChart = ({ stories }: { stories: Story[] }) => {
   const labels = ["Horror", "Loss", "Resilience", "Nostalgia", "Hope"];
   const datasets = stories.map((story, index) => ({
     label: story.title,
@@ -32,8 +33,11 @@ const RadarChart = ({ stories }) => {
       story.data.nostalgia_percentage,
       story.data.hope_percentage,
     ],
-    borderColor: Colors[story.id.toString()],
-    backgroundColor: Colors[story.id.toString()].replace("1)", "0.2)"),
+    borderColor: Colors[story.id.toString() as keyof typeof Colors],
+    backgroundColor: Colors[story.id.toString() as keyof typeof Colors].replace(
+      "1)",
+      "0.2)"
+    ),
   }));
 
   const data = { labels, datasets };

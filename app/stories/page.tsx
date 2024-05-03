@@ -6,11 +6,12 @@ import Section from "@/components/Section";
 import Box from "@/components/box";
 import StoryDetailModal from "@/components/StoryDetailModal";
 import { stories } from "@/utils/stories";
+import { Story } from "@/utils/definitions";
 
 const StoriesPage = () => {
-  const [selectedStory, setSelectedStory] = useState(null);
+  const [selectedStory, setSelectedStory] = useState<Story | null>(null);
 
-  const handleStorySelect = (story) => {
+  const handleStorySelect = (story: Story) => {
     setSelectedStory(story);
   };
 

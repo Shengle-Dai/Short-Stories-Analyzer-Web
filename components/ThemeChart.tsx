@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Colors } from "@/utils/colors";
+import { Story } from "@/utils/definitions";
 
 ChartJS.register(
   CategoryScale,
@@ -20,10 +21,10 @@ ChartJS.register(
   Legend
 );
 
-const ThemeChart = ({ stories }) => {
+const ThemeChart = ({ stories }: { stories: Story[] }) => {
   const data = {
     labels: ["Horror", "Loss", "Resilience", "Nostalgia", "Hope"],
-    datasets: stories.map((story, index) => ({
+    datasets: stories.map((story) => ({
       label: story.title,
       data: [
         story.data.horror_percentage,
@@ -32,8 +33,8 @@ const ThemeChart = ({ stories }) => {
         story.data.nostalgia_percentage,
         story.data.hope_percentage,
       ],
-      backgroundColor: Colors[story.id.toString()],
-      borderColor: Colors[story.id.toString()],
+      backgroundColor: Colors[story.id.toString() as keyof typeof Colors],
+      borderColor: Colors[story.id.toString() as keyof typeof Colors],
       borderWidth: 1,
     })),
   };
@@ -46,7 +47,7 @@ const ThemeChart = ({ stories }) => {
     },
     plugins: {
       legend: {
-        position: "top" as "top",
+        position: "top" as const,
       },
     },
   };
