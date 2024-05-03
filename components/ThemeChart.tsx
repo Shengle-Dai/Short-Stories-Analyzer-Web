@@ -1,4 +1,3 @@
-// components/ThemeChart.tsx
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import {
@@ -10,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { Colors } from "@/utils/colors";
 
 ChartJS.register(
   CategoryScale,
@@ -19,15 +19,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-const colors = [
-  "rgba(255, 99, 132, 0.5)",
-  "rgba(54, 162, 235, 0.5)",
-  "rgba(255, 206, 86, 0.5)",
-  "rgba(75, 192, 192, 0.5)",
-  "rgba(153, 102, 255, 0.5)",
-  "rgba(255, 159, 64, 0.5)",
-]; // Add more colors as needed
 
 const ThemeChart = ({ stories }) => {
   const data = {
@@ -41,8 +32,8 @@ const ThemeChart = ({ stories }) => {
         story.data.nostalgia_percentage,
         story.data.hope_percentage,
       ],
-      backgroundColor: colors[index % colors.length], // Use colors cyclically
-      borderColor: colors[index % colors.length],
+      backgroundColor: Colors[story.id.toString()],
+      borderColor: Colors[story.id.toString()],
       borderWidth: 1,
     })),
   };
@@ -55,16 +46,16 @@ const ThemeChart = ({ stories }) => {
     },
     plugins: {
       legend: {
-        position: "top" as "top", // Explicitly declare 'top' as a type
-      },
-      title: {
-        display: true,
-        text: "Story Theme Percentages",
+        position: "top" as "top",
       },
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return (
+    <div style={{ width: "1000px", height: "600px" }}>
+      <Bar data={data} options={options} />
+    </div>
+  );
 };
 
 export default ThemeChart;

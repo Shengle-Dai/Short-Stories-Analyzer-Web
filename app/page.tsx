@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <IntroParagraph
         title="Welcome to the world of short stories!"
-        description="This is a final project for the course ENGL 1170 (2024SP)."
+        description="This is a final project for the course ENGL 1170: Short Stories - SEM 101 (2024SP)."
       />
 
       <div className="w-full px-[100px] justify-center">
@@ -18,9 +18,7 @@ export default function Page() {
           imageWidth={600}
           imageHeight={400}
           href="/stories"
-        >
-          {/* Additional content can be added here */}
-        </Card>
+        ></Card>
       </div>
       <div className="w-full px-[100px] justify-center">
         {" "}

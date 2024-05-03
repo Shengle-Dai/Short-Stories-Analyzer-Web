@@ -15,8 +15,8 @@ const Card: FC<CardProps> = ({
   title,
   description,
   imageUrl,
-  imageWidth = 1000, // Default width
-  imageHeight = 300, // Default height
+  imageWidth = 1000,
+  imageHeight = 300,
   href,
 }) => {
   return (
@@ -33,7 +33,7 @@ const Card: FC<CardProps> = ({
             />
           </div>
         )}
-        <div className="px-6 py-4">
+        <div className="px-6 py-4 bg-gray-100">
           <div className="font-bold text-xl mb-2">{title}</div>
           <p className="text-gray-700 text-base">{description}</p>
         </div>

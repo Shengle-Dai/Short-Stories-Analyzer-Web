@@ -1,4 +1,3 @@
-// components/StoryDetailModal.tsx
 import React from "react";
 import { Story } from "@/utils/definitions";
 import PercentageBar from "./PercentageBar";

@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import IntroParagraph from "@/components/IntroParagraph";
 import Section from "@/components/Section";
 import Box from "@/components/box";
-import StoryDetailModal from "@/components/StoryDetailModal"; // Assuming you have this component
-import { stories } from "@/utils/definitions";
+import StoryDetailModal from "@/components/StoryDetailModal";
+import { stories } from "@/utils/stories";
 
 const StoriesPage = () => {
   const [selectedStory, setSelectedStory] = useState(null);
